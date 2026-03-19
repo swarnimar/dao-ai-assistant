@@ -90,6 +90,7 @@ Dao💫 is built using a Retrieval-Augmented Generation (RAG) pipeline that comb
 
 ### 1. Clone the repository
 git clone https://github.com/your-username/dao-ai-assistant.git
+
 cd dao-ai-assistant
 
 
@@ -103,4 +104,5 @@ streamlit run dao_app.py
 
 ### 4. Run required models (Ollama)
 ollama run mistral
+
 ollama run nomic-embed-text
