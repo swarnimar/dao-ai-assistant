@@ -7,7 +7,7 @@ st.set_page_config(page_title="Dao💫 Elephant Assistant", page_icon="🐘")
 
 today = datetime.today()
 
-if today.month == 3 and today.day == 16:
+if today.month == 3 and today.day == 13:
     st.success("🐘 Today is Thai Elephant Day! A day celebrating elephant conservation in Thailand. 🤗🥰")
 
 col1, col2 = st.columns([6,1])
