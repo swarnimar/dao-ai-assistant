@@ -1,3 +1,4 @@
+> 🚀 Built as a portfolio project to demonstrate end-to-end RAG system design, including retrieval, query rewriting, and conversational memory.
 # Dao💫 — Elephant Knowledge Companion (RAG-based AI System)
 
 ## 🌟 Project Summary
