@@ -193,9 +193,10 @@ def rag_answer(query, chat_history, language = "EN"):
     else:
         docs, metas, snippets, distances = retrieve(rewritten_query)
 
-        RELEVANCE_THRESHOLD = 0.5  # lower = more strict
-
-        is_relevant = any(d < RELEVANCE_THRESHOLD for d in distances)
+        print("Distances:", distances)
+        RELEVANCE_THRESHOLD = 260  # lower = more strict
+        avg_distance = sum(distances) / len(distances)
+        is_relevant = avg_distance < RELEVANCE_THRESHOLD
     
         context = f"""
         Conversation so far:
