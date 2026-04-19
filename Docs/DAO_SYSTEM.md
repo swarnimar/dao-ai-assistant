@@ -1,6 +1,6 @@
 # Dao💫 Architecture Document
 
-Technical documentation describing the system design,
+>Technical documentation describing the system design,
 architecture decisions, and implementation details of Dao💫 —
 a domain-specific Retrieval-Augmented Generation (RAG) assistant.
 
