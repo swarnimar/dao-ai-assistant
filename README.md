@@ -2,7 +2,7 @@
 
 >🚀 Built as a portfolio project to demonstrate end-to-end LLM system design using Retrieval-Augmented Generation (RAG), including retrieval, query rewriting, and conversational memory.
 
->📄 **System Design & Architecture:** [View detailed architecture](Docs/DAO_SYSTEM.md)
+📄 **System Design & Architecture:** [View detailed architecture](Docs/DAO_SYSTEM.md)
 
 ---
 
