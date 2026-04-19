@@ -106,9 +106,7 @@ streamlit run dao_app.py
 ### 4. Run required models (Ollama)
 ```bash
 ollama run llama3 
-
 ollama run qwen2.5 
-
 ollama run nomic-embed-text
 ```
 
