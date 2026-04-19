@@ -2,6 +2,32 @@ import os
 import chromadb
 import ollama
 from pypdf import PdfReader
+import re
+
+def clean_text(text):
+    """
+    Remove academic citation noise and normalize text
+    before embedding.
+    """
+
+    # Remove citations like (Author 1999)
+    text = re.sub(r"\([A-Za-z\s.,&\-]+?\d{4}[a-z]?\)", "", text)
+
+    # Remove numbered references [12]
+    text = re.sub(r"\[\d+\]", "", text)
+
+    # Remove extra whitespace/newlines
+    text = re.sub(r"\s+", " ", text)
+
+    # remove line breaks inside sentences
+    text = re.sub(r"\n+", " ", text)
+
+    # fix hyphen line breaks
+    text = re.sub(r"-\s+", "", text)
+
+    text = re.sub(r"[^\w\s.,;:()%\-]", "", text)
+
+    return text.strip()
 
 client = chromadb.PersistentClient(path="chroma")
 
@@ -10,7 +36,7 @@ collection = client.get_or_create_collection(name="documents")
 data_folder = "data"
 
 
-def chunk_text(text, chunk_size=800, overlap=150):
+def chunk_text(text, chunk_size=1200, overlap=250):
 
     chunks = []
     start = 0
@@ -42,6 +68,8 @@ for file in os.listdir(data_folder):
             if not text:
                 continue
 
+            text = clean_text(text)
+
             chunks = chunk_text(text)
 
             for i, chunk in enumerate(chunks):
@@ -57,7 +85,8 @@ for file in os.listdir(data_folder):
                     documents=[chunk],
                     metadatas=[{
                         "source": file,
-                        "page": page_num + 1
+                        "page": page_num + 1, 
+                        "topic": "elephant"
                     }]
                 )
 
@@ -66,6 +95,8 @@ for file in os.listdir(data_folder):
 
         with open(path, "r", encoding="utf-8") as f:
             text = f.read()
+
+        text = clean_text(text)
     
         chunks = chunk_text(text)
     
@@ -82,7 +113,8 @@ for file in os.listdir(data_folder):
                 documents=[chunk],
                 metadatas=[{
                     "source": file,
-                    "page": "Info"
+                    "page": "Info",
+                    "topic": "elephant"
                 }]
         )
 

@@ -1,64 +1,59 @@
-> 🚀 Built as a portfolio project to demonstrate end-to-end RAG system design, including retrieval, query rewriting, and conversational memory.
-# Dao💫 — Elephant Knowledge Companion (RAG-based AI System)
+# Dao💫 — Domain-Specific Elephant Knowledge Assistant
 
-## 🌟 Project Summary
+>🚀 Built as a portfolio project to demonstrate end-to-end LLM system design using Retrieval-Augmented Generation (RAG), including retrieval, query rewriting, and conversational memory.
 
-**Dao💫** is an AI-powered elephant knowledge assistant designed to provide accurate, conversational answers about elephant behavior, ecology, and conservation.
-
-Inspired by a personal experience in Thailand, the project explores how domain-specific AI systems can make learning more engaging and accessible.
-
-It is built using a Retrieval-Augmented Generation (RAG) pipeline, combining a curated knowledge base with a conversational interface to deliver grounded, source-backed responses and handle follow-up questions effectively.
+>📄 **System Design & Architecture:** [View detailed architecture](Docs/DAO_SYSTEM.md)
 
 ---
 
-## ✨ Features
+## 🚧 Project Status
 
-- 💬 **Conversational AI Interface**  
-  Ask natural language questions about elephants and receive clear, engaging responses.
+Dao💫 is an actively evolving LLM system.
 
-- 🔎 **Retrieval-Augmented Generation (RAG)**  
-  Uses a vector database to retrieve relevant knowledge and generate grounded answers.
+The current implementation reflects a significantly improved architecture developed through iterative testing, user acceptance testing (UAT), and multiple system refinements, including:
 
-- 🔁 **Follow-up Question Handling**  
-  Maintains conversation context to handle queries like “tell me more” or “expand on point 2”.
-
-- 📚 **Source-backed Responses**  
-  Displays document sources and snippets to ensure transparency and trust.
-
-- 🌏 **Multilingual Support (English + Thai)**  
-  Supports Thai responses with dynamic translation from English knowledge sources.
-
-- 🧠 **Query Rewriting for Better Retrieval**  
-  Improves search quality by converting conversational queries into optimized search queries.
+- Improved retrieval grounding
+- Query rewriting pipeline
+- Structured prompt architecture
+- Multilingual response support (EN / TH)
+- Enhanced conversational memory handling
 
 ---
 
-## 🧠 Architecture
+## 🌟 Overview
 
-Dao💫 is built using a Retrieval-Augmented Generation (RAG) pipeline that combines document retrieval with large language model reasoning.
+**Dao💫** is a domain-specific AI assistant designed to answer questions about elephant behavior, ecology, and conservation using a curated knowledge base.
 
-### 🔄 System Flow
+The system is built to ensure responses are **grounded, explainable, and source-backed**, rather than relying on general model knowledge.
 
-1. **User Query**  
-   The user asks a question through the Streamlit interface.
+Inspired by real-world elephant conservation experiences in Thailand, Dao explores how LLMs can be used for focused, meaningful knowledge systems.
 
-2. **Query Processing & Rewriting**  
-   The system cleans and rewrites the query to improve retrieval accuracy.
+---
 
-3. **Embedding Generation**  
-   The query is converted into a vector embedding.
+## ✨ Key Features
 
-4. **Document Retrieval (ChromaDB)**  
-   The system retrieves relevant document chunks.
+- 💬 Conversational AI interface for elephant-related queries  
+- 🔎 Retrieval-Augmented Generation (RAG) for grounded responses  
+- 🧠 Query rewriting for improved retrieval accuracy  
+- 🔁 Follow-up question handling with conversation memory  
+- 📚 Source-backed answers with document snippets  
+- 🌏 Multilingual support (English + Thai)  
+- ⚙️ Structured prompt-based behavior control  
 
-5. **Context Construction**  
-   Retrieved documents + conversation history are combined.
+---
 
-6. **LLM Response Generation (Mistral via Ollama)**  
-   The model generates a grounded response.
+## 🧠 Architecture Overview
 
-7. **Source Attribution**  
-   Sources and snippets are displayed with the answer.
+📄 Full technical breakdown: [Docs/DAO_SYSTEM.md](Docs/DAO_SYSTEM.md)
+
+Dao follows a modular RAG pipeline:
+
+- Query processing & rewriting  
+- Vector-based document retrieval (ChromaDB)  
+- Context construction using retrieved chunks + history  
+- LLM-based response generation (via Ollama)  
+- Optional translation layer for Thai output  
+- Source attribution and UI rendering  
 
 ---
 
@@ -66,23 +61,23 @@ Dao💫 is built using a Retrieval-Augmented Generation (RAG) pipeline that comb
 
 - **Frontend:** Streamlit  
 - **Backend:** Python  
-- **LLM:** Mistral (via Ollama)  
+- **LLM Runtime:** Ollama  
+- **Models:** Llama / Qwen 2.5 
 - **Embeddings:** nomic-embed-text  
-- **Vector Database:** ChromaDB  
-- **PDF Processing:** PyPDF  
-- **Other Tools:** Regex, Custom RAG Pipeline
+- **Vector DB:** ChromaDB  
+- **Pipeline:** Custom RAG orchestration  
 
 ---
 
 ## 📸 Demo
 
-### 🏠 Home Interface
+### 🏠 Main Interface
 ![Home](assets/Screenshot1.png)
 
 ### 💬 Conversational Response
 ![Chat](assets/Screenshot2.png)
 
-### 📚 Source-backed Answer
+### 📚 Source Attribution
 ![Sources](assets/Screenshot3.png)
 
 ---
@@ -90,8 +85,8 @@ Dao💫 is built using a Retrieval-Augmented Generation (RAG) pipeline that comb
 ## ⚙️ How to Run
 
 ### 1. Clone the repository
+```bash
 git clone https://github.com/your-username/dao-ai-assistant.git
-
 cd dao-ai-assistant
 
 
@@ -104,6 +99,14 @@ streamlit run dao_app.py
 
 
 ### 4. Run required models (Ollama)
-ollama run mistral
+ollama run llama3 
+
+ollama run qwen2.5 
 
 ollama run nomic-embed-text
+
+## 📌 Notes
+
+- This project runs locally using GPU acceleration (RTX 4070 setup)
+- Designed for experimentation with RAG-based LLM systems
+- Focused on domain-specific grounding and interpretability

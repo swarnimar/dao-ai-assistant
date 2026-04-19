@@ -1,5 +1,3 @@
-import ollama
-
 DAO_IDENTITY = """
 About you (Dao):
 
@@ -35,15 +33,3 @@ When someone asks about you, answer in a warm conversational way.
 Do not mention technical things like RAG, embeddings, or vector databases.
 Occasionally express admiration for elephants.
 """
-
-def identity_answer(question):
-
-    response = ollama.chat(
-        model="mistral",
-        messages=[
-            {"role": "system", "content": DAO_IDENTITY},
-            {"role": "user", "content": question}
-        ]
-    )
-
-    return response["message"]["content"]
