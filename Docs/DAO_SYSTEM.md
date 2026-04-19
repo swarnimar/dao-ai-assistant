@@ -984,6 +984,7 @@ Many issues that appeared to be model limitations were actually **prompt alignme
 This shifted my understanding of LLM systems:
 
 > In traditional software, logic lives primarily in code.
+> 
 > In LLM applications, **behavioral logic largely lives in prompts**.
 
 As a result, prompt engineering in Dao evolved into a structured design activity involving:
