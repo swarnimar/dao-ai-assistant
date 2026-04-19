@@ -1,7 +1,7 @@
 # Dao💫 — Domain-Specific Elephant Knowledge Assistant
 
 >🚀 Built as a portfolio project to demonstrate end-to-end LLM system design using Retrieval-Augmented Generation (RAG), including retrieval, query rewriting, and conversational memory.
-
+>
 >📄 **System Design & Architecture:** [View detailed architecture](Docs/DAO_SYSTEM.md)
 
 ---
@@ -88,22 +88,30 @@ Dao follows a modular RAG pipeline:
 ```bash
 git clone https://github.com/your-username/dao-ai-assistant.git
 cd dao-ai-assistant
+```
 
 
 ### 2. Install dependencies
+```bash
 pip install -r requirements.txt
+```
 
 
 ### 3. Run the application
+```bash
 streamlit run dao_app.py
+```
 
 
 ### 4. Run required models (Ollama)
+```bash
 ollama run llama3 
-
 ollama run qwen2.5 
-
 ollama run nomic-embed-text
+```
+
+
+---
 
 ## 📌 Notes
 
